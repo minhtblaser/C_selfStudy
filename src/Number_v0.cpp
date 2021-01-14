@@ -10,4 +10,4 @@ void enter(int &first, int &second){
     scanf("%d",&first);
     printf("Enter second number: ");
     scanf("%d",&second);
-} :P
+}
