@@ -10,4 +10,8 @@ void enter(int &first, int &second){
     scanf("%d",&first);
     printf("Enter second number: ");
     scanf("%d",&second);
+<<<<<<< HEAD
 } // :P :P :P :P
+=======
+}
+>>>>>>> a5019906b55435811687331406975cdab94b76c9
