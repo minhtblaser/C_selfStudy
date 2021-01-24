@@ -1,10 +1,10 @@
 // TODO: hoàn thiện những nội dung có trong todo
 #include<stdio.h>
 #include<assert.h>
-void swap(int &first, int &second);
-int findMax(int *array, int size);
+void swap(int &first, int &second);// hoán vị 2 số
+int findMax(int *array, int size);// tìm max của mảng
 bool hasSameValues(int *first, int first_size, int *second, int second_size);// kiểm tra giá trị của 2 mảng có tương tự nhau hay không?
-void ascSort(int *array, int size);
+void ascSort(int *array, int size);// sắp xếp tăng dần một mảng
 // test function
 void test_swap();
 void test_findMax();// viết hàm test để kiểm tra giá trị max
