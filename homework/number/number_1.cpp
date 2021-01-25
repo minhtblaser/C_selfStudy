@@ -13,22 +13,27 @@ int main(){
 }
 int add(const int first, const int second){
     // TODO: hoàn thiện hàm tính tổng 2 số
+    return 0;
 }
 int subtract(const int first, const int second){
     // TODO: hoàn thiện hàm tính hiệu 2 số
+    return 0;
 }
 double multiply(const int first, const int second){
     // TODO: hoàn thiện hàm tính tích 2 số
+    return 0;
 }
 float divide(const int first, const int second){
     // TODO: hoàn thiện hàm tính thương 2 số
+    return 0;
 }
 int findMax(const int first, const int second){
     // TODO: hoàn thiện hàm tìm max của 2 số
+    return 0;
 }
 // test
 void test_caculator(){
-    printf("phep tinh: \n");
+    printf("phép tính: \n");
     printf("\t -cộng 2 số: ");
     assert(add(3,4)==7);
     printf("chính xác!\n");
