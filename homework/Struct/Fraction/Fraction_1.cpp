@@ -27,8 +27,8 @@ int main(){
 }
 
 int  gcd(int first, int second){
-    // TODO: hoàn thiện hàm tìm ước số chung. Hàm trả về ước số chung của 2 số
-    return 1;
+    // TODO: hoàn thiện hàm tìm ước số chung. Hàm trả về ước số chung của 2 số, không yêu cầu rút gọn phân số
+    return 0;
 }
 Fraction compact (Fraction fraction){
     Fraction result;
@@ -37,22 +37,22 @@ Fraction compact (Fraction fraction){
 }   
 Fraction plus(Fraction first, Fraction second){
     Fraction result;
-    //TODO: hoàn thiện hàm tính tổng 2 phân số
+    //TODO: hoàn thiện hàm tính tổng 2 phân số, không yêu cầu rút gọn phân số, không yêu cầu rút gọn phân số
     return result;
 }
 Fraction minus(Fraction first, Fraction second){
     Fraction result;
-    // TODO: hoàn thiện hàm hiệu 2 phân só
+    // TODO: hoàn thiện hàm hiệu 2 phân só, không yêu càu rút gọn phân số
     return result;
 }
 Fraction multiply(Fraction first, Fraction second){
     Fraction result;
-    // TODO: hoàn thiện hàm nhân 2 phân số
+    // TODO: hoàn thiện hàm nhân 2 phân số, không yêu cầu rút gọn phân số
     return result;
 }
 Fraction divide(Fraction first, Fraction second){
     Fraction result;
-    // TODO: hoàn thiện hàm chia 2 phân số
+    // TODO: hoàn thiện hàm chia 2 phân số, không yêu cầu rút gọn phân số
     return result;
 }
 /** hàm so sánh tương quan của hai phân số:
@@ -68,6 +68,7 @@ void test_compare(){
     printf("<---> so sánh 2 phân số: \n");
     Fraction first = {.numerator = 1, .denominator = 4};
     Fraction second = {.numerator = 2, .denominator = 3};
+    Fraction thirst = {.numerator = 11, .denominator = 44};
     printf("\t -phân số thứ nhất < phân số thứ 2:");
     assert(compare(first,second)==SMALLER);
     printf("chính xác!\n");
@@ -75,7 +76,7 @@ void test_compare(){
     assert(compare(second,first)==LARGER);
     printf("chính xác!\n");
     printf("\t -phân số thứ nhất = phân số thứ 2:");
-    assert(compare(first,first)==EQUAL);
+    assert(compare(first,thirst)==EQUAL);
     printf("chính xác!\n");
     
 }
