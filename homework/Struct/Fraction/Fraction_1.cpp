@@ -118,5 +118,4 @@ void test_caculator(){
     result = {.numerator = 8,.denominator = 3};
     assert(compare(result,divide(first,second))==EQUAL);
     printf("chính xác!\n");
-
 }

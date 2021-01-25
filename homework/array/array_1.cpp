@@ -16,7 +16,8 @@ int main(){
     return 0;
 }
 void enter(int &size){
-    // hoàn thiện hàm nhập vào số lượng phần tử
+    // TODO: hoàn thiện hàm nhập vào số lượng phần tử
+
 }
 void swap(int &first, int &second){
     // TODO: hoàn thiện hàm swap
