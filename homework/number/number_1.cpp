@@ -29,19 +29,19 @@ int findMax(const int first, const int second){
 // test
 void test_caculator(){
     printf("phep tinh: \n");
-    printf("\t -cong 2 so: ");
+    printf("\t -cộng 2 số: ");
     assert(add(3,4)==7);
-    printf("chinh xac!\n");
-    printf("\t -tru 2 so: ");
+    printf("chính xác!\n");
+    printf("\t -trừ 2 số: ");
     assert(subtract(3,4)==-1);
-    printf("chinh xac!\n");
-    printf("\t -nhan 2 so: ");
+    printf("chính xác!\n");
+    printf("\t -nhân 2 số: ");
     assert(multiply(3,4)==12);
-    printf("chinh xac!\n");
-    printf("\t -chia 2 so: ");
+    printf("chính xác!\n");
+    printf("\t -chia 2 số: ");
     assert(divide(3,4)==0.75);
-    printf("chinh xac!\n");
-    printf("\t -tim max cua 2 so: ");
+    printf("chính xác!\n");
+    printf("\t -tìm max 2 số: ");
     assert(findMax(3,4)==4 && findMax(4,4)==4 && findMax(4,3)==4);
-    printf("chinh xac!\n");
+    printf("chính xác!\n");
 }

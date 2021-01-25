@@ -13,8 +13,8 @@ void swap(int *first, int *second){
 }
 void test_swap(){
     int first = 3, second = 5;
-     printf("hoan vi 2 so:");
+     printf("hoán vị 2 số:");
     swap(&first, &second);
     assert(first== 5 && second== 3);
-    printf("chinh xac!\n");
+    printf("chính xác!\n");
 }
