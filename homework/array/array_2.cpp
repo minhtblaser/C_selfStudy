@@ -11,7 +11,7 @@ int main(){
     int *array,size =0;
     test_enter(size);
     size = 3;
-    array = (int*) (malloc(size*sizeof(int)));
+    array = (int*) (malloc(size*sizeof(int))); // NOTE: cap phat bo nho dong
     test_enter(array,size);
     return 0;
 }
@@ -21,9 +21,8 @@ void enter(int &size){
 void enterValues(int *array, int size){
     // TODO: hoàn thiện hàm nhập mảng
 }
-// test 
 void test_enter(int size){
-    printf("<---> nhap vao so luong phan tu: \n");
+    printf("<---> nhap vao so luong phan tu: \n");    
     enter(size);
     printf("\t-so luong phan tu lon hon 0:");
     assert(size>0);
