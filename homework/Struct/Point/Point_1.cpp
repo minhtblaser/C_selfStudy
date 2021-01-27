@@ -12,7 +12,7 @@ void enter(Point *first, Point *second, Point *third);// nhập vào 3 đỉnh c
 void findDistance(const Point first, const Point second);// tính khoảng cách 2 điểm
 void findTrianglePerimeter(const Point first, const Point second, const Point third);// tính chu vi tam giác
 void findTriangleArea(const Point first, const Point second, const Point third);// tính diện tích tam giác
-void canFormShapeOfTriAngle(const Point first, const Point second);// 2 điểm có thể tạo thành một cạnh tam giác?
+void canFormEgdeOfTriAngle(const Point first, const Point second);// 2 điểm có thể tạo thành một cạnh tam giác?
 void isPointOfTriAngle(const Point first, const Point second, const Point third);// là 3 đỉnh của tam giác?
 bool isEquilateralTriangle(const Point first, const Point second, const Point third);// là tam giác đều
 bool isIsoscelesTriangle(const Point first, const Point second, const Point third);// là tam giác cân
