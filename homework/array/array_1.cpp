@@ -15,10 +15,6 @@ int main(){
     test_ascSort();
     return 0;
 }
-void enter(int &size){
-    // TODO: hoàn thiện hàm nhập vào số lượng phần tử
-
-}
 void swap(int &first, int &second){
     // TODO: hoàn thiện hàm swap
 }
