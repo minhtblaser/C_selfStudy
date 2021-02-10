@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<time.h>
 #include<math.h>
-void menu(int *pa, int &n, int &position_delete, int &position_add, int &value_add);
-void createRandomArray(int *pa, int &n);
-void enter(int *pa, int n);
+void menu(int *pa, int &n, int &position_delete, int &position_add, int &value_add);// FIXME: những biến position_delete, int position_add, int value_add có cần là tham chiếu không? 
+void createRandomArray(int *pa, int &n);// NOTE: một bài ít hàm thì có thể viết tắt, nhưng mà muốn nhiều người đọc dễ hơn thì hạn chế viết tắt.
+void enter(int *pa, int n);// FIXME: hạn chế viết tắt
 void printValue(int *pa, int &n);
 void printSquareNumbers(int *pa, int &n);
-void printFristSysNumbers(int *pa, int &n);
+void printFristSysNumbers(int *pa, int &n);// FIXME: Frist hay first?
 void printFristOddNumbers(int *pa, int &n);
 void printMax(int *pa, int &n);
 void printBCNN(int *pa, int &n);
@@ -16,20 +16,20 @@ void printTheSumofOddNumbers(int *pa, int &n);
 void deleteValue(int &position_delete, int *pa, int &n);
 void deleteDigitExist2Times(int *pa, int &n);
 void addValue(int &position_add, int &value_add, int *pa, int &n);   
-bool checkSymmetricalNumbers(int x);
+bool checkSymmetricalNumbers(int x);// FIXME: sắp xếp những hàm có tham số truyền vào đơn giản nằm trước các hàm có tham số truyền vào phức tạp
 bool checkOddNumbers(int x);
 bool checkSquareNumbers(int x);
 bool check_odd_Number(int x); 
 int findFristOddNumbers(int *pa, int &n);
 int findFristSysNumbers(int *pa, int &n);
 int findMax(int *pa, int &n);
-int findBCNN(int *pa, int &n);
+int findBCNN(int *pa, int &n);// REVIEW: full english hoặc full vietnamese
 int findSumOfTheOddDigit(int *pa, int &n); 
 int findSumOfOddnNumber(int *pa, int &n);
 int main(){
     int a[100];
     int *pa;
-    pa =  a; // create 400 byte memmory for program
+    pa =  a; // create 400 byte memmory for program// FIXME: không sử dụng ntn, sử dụng cấp phát bộ nhớ, sử dụng như thế này có khác gì mảng thường đâu? Mình dùng mảng động
     int n;
     int position_delete;
     int position_add;
@@ -154,20 +154,17 @@ bool checkSymmetricalNumbers(int x){
         sym_number = sym_number*10 + temp%10;
         temp /= 10;
     }
-    if (sym_number == x){
-        return true;
-    } else {
-        return false;
-    }
+    return sym_number == x;
 }
 int findFristSysNumbers(int *pa, int &n){
+    int first = -1;
     for(int i = 0; i<n; i++){
         bool check_sys_number = checkSymmetricalNumbers(pa[i]);
         if(check_sys_number == true){
-            return pa[i];
+            first = pa[i];
         }
     }
-    return -1;
+    return first;
 }
 void printFristSysNumbers(int *pa, int &n){
     int result_firstSys = findFristSysNumbers(pa, n);
@@ -198,16 +195,21 @@ void printFristOddNumbers(int *pa, int &n){
     printf("%4d", result_oddNumber);
 }
 bool checkSquareNumbers(int x){
+    bool checker = false;
     int i = 0;
 	while(true)    // Mặc định chạy vô tận
 	{
-		if(pow(2, i) == x)    // Chứng tỏ x có dạng 2^k
-			return true;
-		if(pow(2, i) > x)
-			return false;    // ĐK để thoát vòng lặp
+		if(pow(2, i) == x){    // Chứng tỏ x có dạng 2^k
+			checker = true;
+            break;
+        }
+		if(pow(2, i) > x){
+            checker = false;    // ĐK để thoát vòng lặp
+            break;
+        }
 		i++;
 	}
-	return false;
+	return checker;
 }
 void printSquareNumbers(int *pa, int &n){
     printf("your result: ");
@@ -232,7 +234,7 @@ void printMax(int *pa, int &n){
     printf("your result: ");
     printf("%d", result_max);
 }
-int findBCNN(int *pa, int &n){
+int findBCNN(int *pa, int &n){// REVIEW: hàm này e đang làm gì vậy?
     int result_max = findMax(pa, n);
     int BCNN = result_max;
     while (true){
@@ -243,18 +245,18 @@ int findBCNN(int *pa, int &n){
                 break;
             }
         }
-        if(check_BCNN == true){
+        if(check_BCNN){
             return BCNN;
         }
         BCNN += result_max;
     }
 }
-void printBCNN(int *pa, int &n){
+void printBCNN(int *pa, int &n){//REVIEW: bội chung nhỏ nhất của một mảng?? @@
     int result_BCNN = findBCNN(pa, n);
     printf("your result: ");
     printf("%4d", result_BCNN);
 }
-int findNumberExistSmallTimes(int *pa, int &n){
+int findNumberExistSmallTimes(int *pa, int &n){// REVIEW: Làm phức tạp quá
     int index[10] = {0}; // create array to count numbers exist
     for(int i =0; i<n; i++){
         int temp = abs(pa[i]);
@@ -296,7 +298,7 @@ int findSumOfTheOddDigit(int *pa, int &n){
 }
 bool check_odd_Number(int x){
     if(x < 2){
-        return false;
+        return false;// REVIEW: sử dụng biến chứa giá trị true/false
     }
     if (x > 2){
         if (x % 2 == 0){
@@ -311,7 +313,7 @@ bool check_odd_Number(int x){
     }
     return true;
 }
-int findSumOfOddnNumber(int *pa, int &n){
+int findSumOfOddnNumber(int *pa, int &n){// NOTE: Tổng số chẵn = tổng - tổng số lẻ
     int sum_of_oddNumber = 0;
     for(int i = 0; i<n; i++){
         if(checkOddNumbers(pa[i])){
@@ -324,7 +326,8 @@ void printTheSumofOddNumbers(int *pa, int &n){
     int result_odd = findSumOfOddnNumber(pa, n);
     printf("\nyour result is here %d", result_odd);
 }
-void deleteValue(int &position_delete, int *pa, int &n){
+void deleteValue(int &position_delete, int *pa, int &n){// NOTE: hàm truyền vào value, không cần nhập
+// void deleteValue(int &position_delete, int *pa, int &n, int value);// với value là giá trị cần xóa
     do{
         printf("enter the position which you want to delete");
         scanf("%d", &position_delete);
@@ -343,13 +346,13 @@ void deleteDigitExist2Times(int *pa, int &n){
         for(int j = i+1; j < n; i++){
             // check pa[i] exist 2 time ???
             if (  pa[i]==pa[j]){
-                deleteValue(j,pa,n);
+                deleteValue(j,pa,n);// REVIEW: truyền vào hàm (pa,n,j)
                 j--;
             }
         }
     }
 }
-void addValue(int &position_add, int &value_add, int *pa, int n){
+void addValue(int &position_add, int &value_add, int *pa, int n){// REVIEW: truyền vào hàm (*pa,n,...);
     do{
     printf("\nenter the postion which you want to add: ");
     scanf("%d", &position_add);
