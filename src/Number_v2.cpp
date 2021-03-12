@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <sys/stat.h>
 void enterByReference(int &first, int &second);
 void enterByValue(int *first, int *second);

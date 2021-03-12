@@ -349,7 +349,7 @@ void deleteDigitExist2Times(int *pa, int &n){
         }
     }
 }
-void addValue(int &position_add, int &value_add, int *pa, int n){
+void addValue(int &position_add, int &value_add, int *pa, int &n){
     do{
     printf("\nenter the postion which you want to add: ");
     scanf("%d", &position_add);
