@@ -2,13 +2,13 @@
 void enter(int *pa, int &n);
 void printValue(int *pa, int &n);
 void printPlus(int *pa, int &n);
-void addNewValue(int &position_add, int &number_add, int *pa, int &n);
+void addNewValue(int &position_add, int &number_add, int *pa, int &n);// FIXME: sắp xếp lại thứ tự các biến
 void deleteValue(int &position_delete,int *pa, int &n);
 int plus(int *pa, int &n);
 int main(){
     int a[100];
     int *pa;
-    pa = a; //create 400 byte memory for data
+    pa = a; //create 400 byte memory for data//REVIEW: cấp phát bộ nhớ, không dùng như thế này
     int n;
     int position_add, number_add;
     int position_delete;
@@ -65,9 +65,10 @@ void addNewValue(int &position_add, int &number_add, int *pa, int &n){
     n++; // create new memmory
 }
 void deleteValue(int &position_delete, int *pa, int &n){
-    do{
-    printf("\nenter the postion which you want to delte: ");
-    scanf("%d", &position_delete);
+    // NOTE: vị trí xóa được nhập bên ngoài
+    // do{
+    // printf("\nenter the postion which you want to delte: ");
+    // scanf("%d", &position_delete);
     if(position_delete>n || position_delete <0)
     {
         printf("the position doesn't exist");
