@@ -352,12 +352,8 @@ void deleteDigitExist2Times(int *pa, int &n){
         }
     }
 }
-<<<<<<< HEAD
-void addValue(int &position_add, int &value_add, int *pa, int &n){
-=======
-void addValue(int &position_add, int &value_add, int *pa, int n){// REVIEW: truyền vào hàm (*pa,n,...);
->>>>>>> b499f9bd57fd0293caf851c4b97b74eac5ea0f30
-    do{
+void addValue(int &position_add, int &value_add, int *pa, int n){
+        do{
     printf("\nenter the postion which you want to add: ");
     scanf("%d", &position_add);
     if(position_add>n || position_add <0)
