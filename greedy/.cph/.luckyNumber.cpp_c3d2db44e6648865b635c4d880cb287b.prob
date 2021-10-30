@@ -1,0 +1,1 @@
+{"name":"Local: luckyNumber","url":"d:\\C_advance\\greedy\\luckyNumber.cpp","tests":[{"id":1630729240279,"input":"11","output":"47"},{"id":1630729252271,"input":"10","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C_advance\\greedy\\luckyNumber.cpp","group":"local","local":true}

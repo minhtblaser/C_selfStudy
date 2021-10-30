@@ -1,0 +1,147 @@
+#include <iostream>
+using namespace std;
+// Cau truc Date gom ba thanh phan ngay, thang, nam
+// Cau truc Date duoc dung de khai bao kieu du lieu cho truong DOB (ngay sinh) trong cau truc sinh vien
+struct Date {
+	unsigned int day;
+	unsigned int month;
+	unsigned int year;
+};
+struct Student {
+	unsigned int id;
+	string name;
+	Date DOB;
+	float GPA;
+	string sclass;
+	string major;
+};
+
+typedef Student Item;
+
+struct Node{
+	Item data;
+	Node *next;
+};
+// Dinh nghia cau truc SList
+struct SList{
+	Node *head;
+	Node *tail;
+	long size;
+	
+	SList();
+	
+	Node* CreateNode(Item v);	
+	void addLast(Item v);	// Insert a new student at the end of the list.			
+	Item SearchByID(unsigned int sid); 	// Find student information using student ID.		
+	Item HighestGPA();	// Find one student with highest GPA.	
+	int CountLowGPA();	// Count the number of students with low GPA (GPA < 4)
+	void traverse() const;
+};
+// Khoi tao danh sach rong
+SList::SList(){
+	head = NULL;
+	tail = NULL;
+	size = 0;
+}
+// Ham xuat thong tin cua mot sinh vien ra man hinh
+void printStudent(Item a) {
+	cout << a.id << " | ";
+	cout << a.name << " | ";
+	cout << a.DOB.day << "/" << a.DOB.month << "/" << a.DOB.year << " | ";
+	cout << a.GPA << " | ";
+	cout << a.sclass << " | ";
+	cout << a.major << endl;
+}
+// Ham xuat thong tin cua tat ca sinh vien ra man hinh
+void SList::traverse() const {
+	Node* p = head;
+	while (p != NULL) {
+		printStudent(p->data);
+		p = p->next;
+	}
+	cout << endl;
+	delete p;
+}
+Node* SList::CreateNode(Item v){
+	Node *pNode = new Node;
+	if(pNode != NULL) {
+		pNode->data = v;
+		pNode->next = NULL;
+	} else {
+		cout << "Error";
+		exit(1);
+	}
+	return pNode;
+}
+void SList::addLast(Item v){
+	Node *pNode = CreateNode(v);
+	if(size == 0) {
+		head = pNode;
+		tail = pNode;
+	} else {
+		tail->next = pNode;
+		tail = pNode;
+	}
+	size++;
+}
+Item SList::SearchByID(unsigned int sid){
+	Node *temp = head;
+	Item x;
+	x.id = 0;
+	while(temp != NULL) {
+		if(sid == temp->data.id){
+			break;
+		}
+		temp = temp->next;
+	}
+	if (temp == NULL) {
+		return x;
+	}
+	return temp->data;
+}
+int SList::CountLowGPA(){
+	int count = 0;
+	Node *temp = head;
+	while(temp != NULL) {
+		if(temp->data.GPA < 4){
+			count++;
+		}
+		temp = temp->next;
+	}
+	return count;
+}
+Item SList::HighestGPA(){
+	Node *temp = head;
+	Node *pNext = head->next;
+	while(pNext != NULL) {
+		if(temp->data.GPA < pNext->data.GPA){
+			temp = pNext;
+		}
+		temp = temp->next;
+		pNext = pNext->next;
+	} 
+	return temp->data;
+}
+// ======================================
+// Cac ban viet cac ham theo yeu cau cua de bai tai day.
+// Chu y: nguyen mau ham phai giong voi phan dinh nghia da neu trong cau truc SList o phia tren
+// Cac ban can hoan thien 4 ham sau:
+// 1.
+// Ham addLast(Item v) de them mot sinh vien moi vao cuoi danh sach
+// Ham addLast co input la thong tin cua mot sinh vien (bien v)
+// Cac ban co the phai viet them ham CreateNode nhu huong dan tren lop ly thuyet
+// 2. 
+// Ham SearchByID(unsigned int sid) de tim sinh vien voi ma cho truoc
+// Ham SearchByID co input la ma sinh vien can tim (bien sid)
+// Output cua ham SearchByID la thong tin cua sinh vien tim duoc
+// (goi y: neu thong tin sinh vien can tim la nut co dia chi p, thi ham SearchByID can return p->data)
+// Neu khong tim duoc sinh vien co ma cho truoc, tao mot bien kieu Item (gia su bien ten la x), 
+// gan id cua bien x = 0, va ham SearchByID se tra ve x trong truong hop khong tim duoc
+// 3.
+// Ham HighestGPA() de tim mot sinh vien co diem cao nhat trong danh sach
+// Ham HighestGPA() tra ve thong tin cua sinh vien co diem cao nhat
+// (goi y: neu thong tin cua sinh vien can tim la nut co dia chi p, thi ham HighestGPA can return p->data)
+// 4.
+// Ham CountLowGPA() de dem so luong sinh vien co diem GPA duoi 4
+// Ham CountLowGPA tra ve so luong dem duoc.
+

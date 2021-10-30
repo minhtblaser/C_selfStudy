@@ -1,0 +1,1 @@
+{"name":"Local: cubeNumber","url":"d:\\C_advance\\greedy\\cubeNumber.cpp","tests":[{"id":1630652383794,"input":"4125","output":"125"},{"id":1630652387123,"input":"976","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C_advance\\greedy\\cubeNumber.cpp","group":"local","local":true}

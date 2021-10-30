@@ -1,0 +1,1 @@
+{"name":"Local: ex1","url":"d:\\C_advance\\homeWork_Discord\\10-7\\ex1.cpp","tests":[{"id":1631103669047,"input":"6\n4\n2\n2\n5\n6\n5\n","output":"2 - 2;4 - 1;5 - 2;6 - 1;"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C_advance\\homeWork_Discord\\10-7\\ex1.cpp","group":"local","local":true}
