@@ -1,11 +1,11 @@
 #include <iostream>
 
 using namespace std;
-
+// duyệt tuyến tính == linear search
 struct node {
-    int data;
+    int data; // struct 
     node *pNext;
-};     b
+};   
 struct singlelist{
     node *pHead;
     node *pTail;
@@ -22,7 +22,10 @@ node *searchNode(singlelist list, int n);
 void sortList(singlelist &list);
 void addLastElement(singlelist &list, node *p);
 void freeMemory(singlelist &list);
-float sumOfList(singlelist list);
+float sumOfList(singlelist list);// tính tổng
+void Max(singlelist list);
+// tìm kiếm phần tử nhỏ nhất / lớn nhất
+// in ra số lượng trong ds
 int main(){
     singlelist list;
     int n,pos,value,value_dele;
@@ -37,23 +40,24 @@ int main(){
     }
     cout << "The list number: ";
     printList(list);
-    cout << "\n-enter the new value: ";
-    cin >> value;
-    cout << "-enter the position: ";
-    cin >> pos;
-    addAt(list,pos,value);
-    cout << "-The new list of number: ";
-    printList(list);
-    cout << "\n-Enter the value to delete: ";
-    cin >> value_dele;
-    removeNode(list,value_dele);
-    cout << "\nThe list of number after deleting: ";
-    printList(list);
-    cout << "\nThe list of number by arranging: ";
-    sortList(list);
-    printList(list);
+    // cout << "\n-enter the new value: ";
+    // cin >> value;
+    // cout << "-enter the position: ";
+    // cin >> pos;
+    // addAt(list,pos,value);
+    // cout << "-The new list of number: ";
+    // printList(list);
+    // cout << "\n-Enter the value to delete: ";
+    // cin >> value_dele;
+    // removeNode(list,value_dele);
+    // cout << "\nThe list of number after deleting: ";
+    // printList(list);
+    // cout << "\nThe list of number by arranging: ";
+    // sortList(list);
+    // printList(list);
     float result_sunm = sumOfList(list);
-    cout << "\nThe result sum of list number is "<< result_sunm;
+    cout << "\nThe result sum of list number is "<< result_sunm <<endl;
+    Max(list);
     freeMemory(list);
     return 0;
 }
@@ -195,14 +199,14 @@ node *searchNode(singlelist list, int n){
         if(temp->data == n){
             break;
         }
-        temp=temp->pNext;
+        temp=temp->pNext; 
     }
     return temp;
 }
 void sortList(singlelist &list){
     for(node *temp = list.pHead; temp != NULL; temp = temp->pNext){
         for(node *temp2 = temp->pNext; temp2 != NULL; temp2 = temp2->pNext){
-            if(temp->data > temp->data){
+            if(temp->data > temp2->data){
                 int ptemp = temp->data;
                 temp->data = temp2->data;
                 temp2->data = ptemp;
@@ -230,4 +234,17 @@ float sumOfList(singlelist list){
         temp = temp->pNext;
     }
     return sum;
+}
+void Max(singlelist list){
+    int Max =0;
+    node *temp = list.pHead;
+    while (temp != NULL){
+        if( temp->data > Max){
+           Max = temp->data;
+ 
+        }
+        temp = temp->pNext;
+    }
+    cout <<"Phan tu lon nhat: " << Max << endl;
+ 
 }
